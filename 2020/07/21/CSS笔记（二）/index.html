@@ -1,0 +1,331 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CSS 笔记（二） | 想用0和1创造世界</title><meta name="keywords" content="CSS"><meta name="author" content="cster,i@cster.xyz"><meta name="copyright" content="cster"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="CSS 的复合选择器什么是复合选择器在 CSS 中，可以根据选择器的类型把选择器分为基础选择器和复合选择器，复合选择器是建立在基础选择器之上，对基本选择器进行组合形成的。  复合选择器可以更准确、更高效的选择目标元素（标签）。 复合选择器是由两个或多个基础选择器，通过不同的方式组合而成的。 常用的复合选择器包括：后代选择器、子选择器、并集选择器、伪类选择器等等。  后代选择器后代选择器又称为包含选">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS 笔记（二）">
+<meta property="og:url" content="https://cster.xyz/2020/07/21/CSS%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/index.html">
+<meta property="og:site_name" content="想用0和1创造世界">
+<meta property="og:description" content="CSS 的复合选择器什么是复合选择器在 CSS 中，可以根据选择器的类型把选择器分为基础选择器和复合选择器，复合选择器是建立在基础选择器之上，对基本选择器进行组合形成的。  复合选择器可以更准确、更高效的选择目标元素（标签）。 复合选择器是由两个或多个基础选择器，通过不同的方式组合而成的。 常用的复合选择器包括：后代选择器、子选择器、并集选择器、伪类选择器等等。  后代选择器后代选择器又称为包含选">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.cster.xyz/images/css.jpg">
+<meta property="article:published_time" content="2020-07-21T03:56:25.000Z">
+<meta property="article:modified_time" content="2020-10-21T04:21:36.268Z">
+<meta property="article:author" content="cster">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.cster.xyz/images/css.jpg"><link rel="shortcut icon" href="https://img.cster.xyz/images/avatar.png"><link rel="canonical" href="https://cster.xyz/2020/07/21/CSS%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: true
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: undefined,
+  isToc: true,
+  postUpdate: '2020-10-21 12:21:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://img.cster.xyz/images/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://img.cster.xyz/images/css.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">想用0和1创造世界</a></span><span id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><h1 class="post-title">CSS 笔记（二）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-07-21T03:56:25.000Z" title="发表于 2020-07-21 11:56:25">2020-07-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-10-21T04:21:36.268Z" title="更新于 2020-10-21 12:21:36">2020-10-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Web/">Web</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="CSS-的复合选择器"><a href="#CSS-的复合选择器" class="headerlink" title="CSS 的复合选择器"></a>CSS 的复合选择器</h1><h2 id="什么是复合选择器"><a href="#什么是复合选择器" class="headerlink" title="什么是复合选择器"></a>什么是复合选择器</h2><p>在 CSS 中，可以根据选择器的类型把选择器分为基础选择器和复合选择器，复合选择器是建立在基础选择器之上，对基本选择器进行组合形成的。</p>
+<ul>
+<li>复合选择器可以更准确、更高效的选择目标元素（标签）。</li>
+<li>复合选择器是由两个或多个基础选择器，通过不同的方式组合而成的。</li>
+<li>常用的复合选择器包括：后代选择器、子选择器、并集选择器、伪类选择器等等。</li>
+</ul>
+<h2 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h2><p>后代选择器又称为包含选择器，可以选择父元素里面子元素。其写法就是把外层标签写在前面，内层标签写在后面，中间用空格分隔。当标签发生嵌套时，内层标签就成为外层标签的后代。</p>
+<p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">元素1 元素2 &#123; 样式声明 &#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述语法表示选择元素 1 里面的所有元素 2 （后代元素）。</p>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ul li &#123; 样式声明 &#125; &#x2F;* 选择 ul 里面所有的 li标签元素 *&#x2F;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>元素 1 和 元素 2 中间用<strong>空格隔开</strong>。</li>
+<li>元素 1 是父级，元素 2 是子级，最终选择的是<strong>元素 2</strong>。</li>
+<li>元素 2 可以是儿子，也可以是孙子等，只要是元素 1 的后代即可。</li>
+<li>元素 1 和 元素 2 可以是任意基础选择器。</li>
+</ul>
+<h2 id="子选择器"><a href="#子选择器" class="headerlink" title="子选择器"></a>子选择器</h2><p><strong>子元素选择器（子选择器）</strong>只能选择作为某元素的最近一级子元素。简单理解就是选亲儿子元素。</p>
+<p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">元素1 &gt; 元素2 &#123; 样式声明 &#125; </span><br></pre></td></tr></table></figure>
+
+<p>上述语法表示<strong>选择元素1 里面的所有直接后代(子元素) 元素2</strong>。</p>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">div &gt; p &#123; 样式声明 &#125; &#x2F;* 选择 div 里面所有最近一级 p 标签元素 *&#x2F;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>元素 1 和 元素 2 中间用 <strong>大于号 &gt;</strong> 隔开。</li>
+<li>元素 1 是父级，元素 2 是子级，<strong>最终选择的是元素 2</strong>。</li>
+<li>元素 2 必须是<strong>子代</strong>，其孙子、重孙之类都不归他管。</li>
+</ul>
+<h2 id="并集选择器"><a href="#并集选择器" class="headerlink" title="并集选择器"></a>并集选择器</h2><p><strong>并集选择器可以选择多组标签, 同时为他们定义相同的样式。</strong>通常用于集体声明。</p>
+<p>并集选择器是各选择器<strong>通过英文逗号（,）连接而成</strong>，任何形式的选择器都可以作为并集选择器的一部分。</p>
+<p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">元素1,元素2 &#123; 样式声明 &#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述语法表示<strong>选择元素1 和 元素2</strong>。</p>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ul,div &#123; 样式声明 &#125; &#x2F;* 选择 ul 和 div标签元素 *&#x2F; </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>元素1 和 元素2 中间用逗号隔开。</li>
+<li>逗号可以理解为和的意思。</li>
+<li>并集选择器通常用于集体声明。</li>
+</ul>
+<h2 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h2><p>伪类选择器用于向某些选择器添加特殊的效果，比如给链接添加特殊效果，或选择第1个，第n个元素。</p>
+<p>伪类选择器书写最大的特点是用冒号（:）表示，比如 :hover 、 :first-child 。</p>
+<p>以下为常用的一些伪类选择器。</p>
+<h3 id="链接伪类选择器"><a href="#链接伪类选择器" class="headerlink" title="链接伪类选择器"></a>链接伪类选择器</h3><p><strong>链接伪类选择器注意事项：</strong></p>
+<ol>
+<li><strong>为了确保生效，请按照 LVHA 的循顺序声明 :link－:visited－:hover－:active。</strong></li>
+<li>记忆法：love hate 或者 lv 包包 hao。</li>
+<li>因为 a 链接在浏览器中具有默认样式，所以我们实际工作中都需要给链接单独指定样式。</li>
+</ol>
+<p><strong>链接伪类选择器实际工作开发中的写法：</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* a 是标签选择器 所有的链接 */</span></span><br><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: gray;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* :hover 是链接伪类选择器 鼠标经过 */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red; <span class="comment">/* 鼠标经过的时候，由原来的 灰色 变成了红色 */</span></span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h3 id="focus-伪类选择器"><a href="#focus-伪类选择器" class="headerlink" title=":focus 伪类选择器"></a>:focus 伪类选择器</h3><p>:focus 伪类选择器用于选取获得焦点的表单元素。</p>
+<p>焦点就是光标，一般情况 &lt;input&gt; 类表单元素才能获取，因此这个选择器也主要针对于表单元素来说。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">:focus</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>:yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="复合选择器总结"><a href="#复合选择器总结" class="headerlink" title="复合选择器总结"></a>复合选择器总结</h2><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>作用</th>
+<th>特征</th>
+<th>使用情况</th>
+<th>隔开符合及用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>后代选择器</td>
+<td>用来选择后代元素</td>
+<td>是后代就可以</td>
+<td>较多</td>
+<td>符号是<strong>空格</strong> .nav a</td>
+</tr>
+<tr>
+<td>子代选择器</td>
+<td>选择最近一级元素</td>
+<td>只选择子代</td>
+<td>较少</td>
+<td>符号是<strong>大于</strong> .nav&gt;p</td>
+</tr>
+<tr>
+<td>并集选择器</td>
+<td>选择某些相同样式的元素</td>
+<td>可以用于集体声明</td>
+<td>较多</td>
+<td>符号是<strong>逗号</strong> .nav, .header</td>
+</tr>
+<tr>
+<td>链接伪类选择器</td>
+<td>选择不同状态的链接</td>
+<td>和链接相关</td>
+<td>较多</td>
+<td>重点记住 a{} 和 a:hover 实际开发的写法</td>
+</tr>
+<tr>
+<td>:focus选择器</td>
+<td>选择获得光标的表单</td>
+<td>和表单相关</td>
+<td>较少</td>
+<td>input:focus 记住这个写法</td>
+</tr>
+</tbody></table>
+<h1 id="CSS-的元素显示模式"><a href="#CSS-的元素显示模式" class="headerlink" title="CSS 的元素显示模式"></a>CSS 的元素显示模式</h1><h2 id="什么是元素显示模式"><a href="#什么是元素显示模式" class="headerlink" title="什么是元素显示模式"></a>什么是元素显示模式</h2><p>元素显示模式就是<strong>元素（标签）以什么方式进行显示</strong>，比如 &lt;div&gt; 自己占一行，比如一行可以放多个&lt;span&gt;。</p>
+<p>HTML 元素一般分为<strong>块元素</strong>和<strong>行内元素</strong>两种类型。</p>
+<h2 id="块元素"><a href="#块元素" class="headerlink" title="块元素"></a>块元素</h2><p>常见的块元素有 &lt;h&gt;~&lt;h6&gt;、&lt;p&gt;、&lt;div&gt;、&lt;ul&gt;、&lt;ol&gt;、&lt;li&gt; 等，其中 &lt;div&gt; 标签是最典型的块元素。</p>
+<p>块级元素的特点：</p>
+<ol>
+<li>比较霸道，自己独占一行。</li>
+<li>高度、宽度、外边距以及内边距都可以控制。</li>
+<li>宽度默认是容器（父级宽度）的100%。</li>
+<li>是一个容器及盒子，里面可以放行内或者块级元素。</li>
+</ol>
+<p><strong>注意：</strong></p>
+<ol>
+<li>文字类的元素内不能使用块级元素。</li>
+<li>&lt;p&gt; 标签主要用于存放文字，因此里面不能放块级元素，特别是不能放 &lt;div&gt;。</li>
+<li>同理， &lt;h&gt;~&lt;h6&gt; 等都是文字类块级标签，里面也不能放其他块级元素。</li>
+</ol>
+<h2 id="行内元素"><a href="#行内元素" class="headerlink" title="行内元素"></a>行内元素</h2><p>常见的行内元素有&lt;a&gt;、&lt;strong&gt;、&lt;b&gt;、&lt;em&gt;、&lt;i&gt;、&lt;del&gt;、&lt;s&gt;、&lt;ins&gt;、&lt;u&gt;、&lt;span&gt;等，其中 &lt;span&gt;标签是最典型的行内元素。有的地方也将行内元素称为内联元素。</p>
+<p><strong>行内元素的特点：</strong></p>
+<ol>
+<li>相邻行内元素在一行上，一行可以显示多个。</li>
+<li>高、宽直接设置是无效的。</li>
+<li>默认宽度就是它本身内容的宽度。</li>
+<li>行内元素只能容纳文本或其他行内元素。</li>
+</ol>
+<p><strong>注意：</strong></p>
+<ul>
+<li>链接里面不能再放链接。</li>
+<li>特殊情况链接 &lt;a&gt; 里面可以放块级元素，但是给 &lt;a&gt; 转换一下块级模式最安全。</li>
+</ul>
+<h2 id="行内块元素"><a href="#行内块元素" class="headerlink" title="行内块元素"></a>行内块元素</h2><p>在行内元素中有几个特殊的标签 —— &lt;img /&gt;、&lt;input /&gt;、&lt;td&gt;，它们<strong>同时具有块元素和行内元素的特点</strong>。<br>有些资料称它们为<strong>行内块元素</strong>。</p>
+<p><strong>行内块元素的特点：</strong></p>
+<ol>
+<li>和相邻行内元素（行内块）在一行上，但是他们之间会有空白缝隙。一行可以显示多个（行内元素特点）。</li>
+<li>默认宽度就是它本身内容的宽度（行内元素特点）。</li>
+<li>高度，行高、外边距以及内边距都可以控制（块级元素特点）。</li>
+</ol>
+<h2 id="元素显示模式总结"><a href="#元素显示模式总结" class="headerlink" title="元素显示模式总结"></a>元素显示模式总结</h2><table>
+<thead>
+<tr>
+<th>元素模式</th>
+<th>元素排列</th>
+<th>设置样式</th>
+<th>默认宽度</th>
+<th>包含</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>块级元素</td>
+<td>一行只能放一个块级元素</td>
+<td>可以设置宽带高度</td>
+<td>容器的100%</td>
+<td>容器级可以包含任何标签</td>
+</tr>
+<tr>
+<td>行内元素</td>
+<td>一行可以放多个行内元素</td>
+<td>不可以设置宽带高度</td>
+<td>它本身内容的高度</td>
+<td>容纳文本或者其他行内元素</td>
+</tr>
+<tr>
+<td>行内块元素</td>
+<td>一行可以放多个行内块元素</td>
+<td>可以设置宽带高度</td>
+<td>它本身内容的高度</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="元素显示模式转换"><a href="#元素显示模式转换" class="headerlink" title="元素显示模式转换"></a>元素显示模式转换</h2><p>特殊情况下，我们需要元素模式的转换，简单理解: 一个模式的元素需要另外一种模式的特性。</p>
+<p>比如想要增加链接 &lt;a&gt; 的触发范围。</p>
+<ul>
+<li>转换为块元素：display:block;</li>
+<li>转换为行内元素：display:inline;</li>
+<li>转换为行内块：display: inline-block;</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:i@cster.xyz">cster</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://cster.xyz/2020/07/21/CSS%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/">https://cster.xyz/2020/07/21/CSS笔记（二）/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://cster.xyz" target="_blank">想用0和1创造世界</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/CSS/">CSS</a></div><div class="post_share"><div class="social-share" data-image="https://img.cster.xyz/images/css.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://img.cster.xyz/images/%E5%BE%AE%E4%BF%A1.png" target="_blank"><img class="post-qr-code-img" src="https://img.cster.xyz/images/%E5%BE%AE%E4%BF%A1.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="https://img.cster.xyz/images/%E6%94%AF%E4%BB%98%E5%AE%9D.jpg" target="_blank"><img class="post-qr-code-img" src="https://img.cster.xyz/images/%E6%94%AF%E4%BB%98%E5%AE%9D.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/08/09/CSS%E7%AC%94%E8%AE%B0%EF%BC%88%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B%EF%BC%89/"><img class="prev-cover" src="https://img.cster.xyz/images/css.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">CSS 笔记（盒子模型）</div></div></a></div><div class="next-post pull-right"><a href="/2020/07/16/CSS%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"><img class="next-cover" src="https://img.cster.xyz/images/css.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">CSS 笔记（一）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2020/08/09/CSS笔记（浮动）/" title="CSS 笔记（浮动）"><img class="cover" src="https://img.cster.xyz/images/css.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-09</div><div class="title">CSS 笔记（浮动）</div></div></a></div><div><a href="/2020/08/09/CSS笔记（定位）/" title="CSS 笔记（定位）"><img class="cover" src="https://img.cster.xyz/images/css.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-09</div><div class="title">CSS 笔记（定位）</div></div></a></div><div><a href="/2020/08/09/CSS笔记（盒子模型）/" title="CSS 笔记（盒子模型）"><img class="cover" src="https://img.cster.xyz/images/css.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-09</div><div class="title">CSS 笔记（盒子模型）</div></div></a></div><div><a href="/2020/08/14/CSS笔记（高级技巧）/" title="CSS笔记（高级技巧）"><img class="cover" src="https://img.cster.xyz/images/css.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-14</div><div class="title">CSS笔记（高级技巧）</div></div></a></div><div><a href="/2020/08/14/HTML5和CSS3的新特性/" title="HTML5和CSS3的新特性"><img class="cover" src="https://img.cster.xyz/images/HTML5-CSS3.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-14</div><div class="title">HTML5和CSS3的新特性</div></div></a></div><div><a href="/2020/07/16/CSS笔记（一）/" title="CSS 笔记（一）"><img class="cover" src="https://img.cster.xyz/images/css.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-16</div><div class="title">CSS 笔记（一）</div></div></a></div></div></div></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://img.cster.xyz/images/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">cster</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/cst-er"><i class="fab fa-github"></i><span>Github</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/cst-er" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:i@cster.xyz" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS-%E7%9A%84%E5%A4%8D%E5%90%88%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text">CSS 的复合选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%8D%E5%90%88%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">1.1.</span> <span class="toc-text">什么是复合选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E4%BB%A3%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">1.2.</span> <span class="toc-text">后代选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">1.3.</span> <span class="toc-text">子选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E9%9B%86%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">1.4.</span> <span class="toc-text">并集选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">1.5.</span> <span class="toc-text">伪类选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E6%8E%A5%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">1.5.1.</span> <span class="toc-text">链接伪类选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#focus-%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">1.5.2.</span> <span class="toc-text">:focus 伪类选择器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E5%90%88%E9%80%89%E6%8B%A9%E5%99%A8%E6%80%BB%E7%BB%93"><span class="toc-number">1.6.</span> <span class="toc-text">复合选择器总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS-%E7%9A%84%E5%85%83%E7%B4%A0%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">CSS 的元素显示模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%85%83%E7%B4%A0%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.1.</span> <span class="toc-text">什么是元素显示模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9D%97%E5%85%83%E7%B4%A0"><span class="toc-number">2.2.</span> <span class="toc-text">块元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0"><span class="toc-number">2.3.</span> <span class="toc-text">行内元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%8C%E5%86%85%E5%9D%97%E5%85%83%E7%B4%A0"><span class="toc-number">2.4.</span> <span class="toc-text">行内块元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93"><span class="toc-number">2.5.</span> <span class="toc-text">元素显示模式总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F%E8%BD%AC%E6%8D%A2"><span class="toc-number">2.6.</span> <span class="toc-text">元素显示模式转换</span></a></li></ol></li></ol></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/11/08/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%EF%BC%88%E4%BA%8C%EF%BC%89/" title="编译原理（二）"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="编译原理（二）"/></a><div class="content"><a class="title" href="/2020/11/08/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%EF%BC%88%E4%BA%8C%EF%BC%89/" title="编译原理（二）">编译原理（二）</a><time datetime="2020-11-08T09:56:00.000Z" title="发表于 2020-11-08 17:56:00">2020-11-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/10/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%88%E4%B8%80%EF%BC%89/" title="操作系统（一）"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统（一）"/></a><div class="content"><a class="title" href="/2020/10/14/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%88%E4%B8%80%EF%BC%89/" title="操作系统（一）">操作系统（一）</a><time datetime="2020-10-14T09:57:08.000Z" title="发表于 2020-10-14 17:57:08">2020-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/09/08/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%EF%BC%88%E4%B8%80%EF%BC%89/" title="编译原理（一）"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="编译原理（一）"/></a><div class="content"><a class="title" href="/2020/09/08/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%EF%BC%88%E4%B8%80%EF%BC%89/" title="编译原理（一）">编译原理（一）</a><time datetime="2020-09-08T09:09:39.000Z" title="发表于 2020-09-08 17:09:39">2020-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/14/HTML5%E5%92%8CCSS3%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7/" title="HTML5和CSS3的新特性"><img src="https://img.cster.xyz/images/HTML5-CSS3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HTML5和CSS3的新特性"/></a><div class="content"><a class="title" href="/2020/08/14/HTML5%E5%92%8CCSS3%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7/" title="HTML5和CSS3的新特性">HTML5和CSS3的新特性</a><time datetime="2020-08-14T14:25:03.000Z" title="发表于 2020-08-14 22:25:03">2020-08-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/14/CSS%E7%AC%94%E8%AE%B0%EF%BC%88%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7%EF%BC%89/" title="CSS笔记（高级技巧）"><img src="https://img.cster.xyz/images/css.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSS笔记（高级技巧）"/></a><div class="content"><a class="title" href="/2020/08/14/CSS%E7%AC%94%E8%AE%B0%EF%BC%88%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7%EF%BC%89/" title="CSS笔记（高级技巧）">CSS笔记（高级技巧）</a><time datetime="2020-08-14T14:07:48.000Z" title="发表于 2020-08-14 22:07:48">2020-08-14</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By cster</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>
